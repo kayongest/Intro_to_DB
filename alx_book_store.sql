@@ -6,7 +6,7 @@
 CREATE DATABASE IF NOT EXISTS `alx_book_store`;
 
 -- USE THE DATABASE
-USE `alx_book_store`;
+-- USE `alx_book_store`;
 
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR AUTHORS
