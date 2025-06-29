@@ -23,35 +23,35 @@ CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR AUTHORS
+-- TABLE STRUCTURE FOR Authors (EXACT CASE AS REQUIRED)
 -- --------------------------------------------------------
-CREATE TABLE IF NOT EXISTS
-    `authors` (
-        `author_id` INT (11) NOT NULL,
+CREATE TABLE
+    `Authors` (
+        `author_id ` INT (11) NOT NULL,
         `author_name` VARCHAR(215) NOT NULL,
-        PRIMARY KEY (`author_id`)
+        PRIMARY KEY (`author_id `)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR BOOKS
+-- TABLE STRUCTURE FOR Books
 -- --------------------------------------------------------
 CREATE TABLE
-    `books` (
+    `Books` (
         `book_id` INT (11) NOT NULL,
         `title` VARCHAR(130) NOT NULL,
-        `author_id` INT (11) DEFAULT NULL,
+        `author_id ` INT (11) DEFAULT NULL,
         `price` DOUBLE NOT NULL,
         `publication_date` DATE DEFAULT NULL,
         PRIMARY KEY (`book_id`),
-        KEY `author_id` (`author_id`),
-        CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`author_id`)
+        KEY `author_id ` (`author_id `),
+        CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author_id `) REFERENCES `Authors` (`author_id `)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR CUSTOMERS
+-- TABLE STRUCTURE FOR Customers
 -- --------------------------------------------------------
 CREATE TABLE
-    `customers` (
+    `Customers` (
         `customer_id` INT (11) NOT NULL,
         `customer_name` VARCHAR(215) NOT NULL,
         `email` VARCHAR(215) DEFAULT NULL,
@@ -60,23 +60,23 @@ CREATE TABLE
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR ORDERS
+-- TABLE STRUCTURE FOR Orders
 -- --------------------------------------------------------
 CREATE TABLE
-    `orders` (
+    `Orders` (
         `order_id` INT (11) NOT NULL,
         `customer_id` INT (11) DEFAULT NULL,
         `order_date` DATE NOT NULL,
         PRIMARY KEY (`order_id`),
         KEY `customer_id` (`customer_id`),
-        CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`)
+        CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR ORDER_DETAILS
+-- TABLE STRUCTURE FOR Order_Details
 -- --------------------------------------------------------
 CREATE TABLE
-    `order_details` (
+    `Order_Details` (
         `orderdetailid` INT (11) NOT NULL,
         `order_id` INT (11) DEFAULT NULL,
         `book_id` INT (11) DEFAULT NULL,
@@ -84,8 +84,8 @@ CREATE TABLE
         PRIMARY KEY (`orderdetailid`),
         KEY `order_id` (`order_id`),
         KEY `book_id` (`book_id`),
-        CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-        CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`)
+        CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id`),
+        CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `Books` (`book_id`)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 COMMIT;
