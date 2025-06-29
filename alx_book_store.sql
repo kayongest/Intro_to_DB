@@ -1,6 +1,10 @@
 -- ALX Book Store Database Schema
 -- File: alx_book_store.sql
 
+-- CREATE THE DATABASE
+CREATE DATABASE IF NOT EXISTS `main_book_store` 
+DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR AUTHORS
 -- --------------------------------------------------------
