@@ -60,32 +60,29 @@ CREATE TABLE
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR Orders (WITH ALL REQUIRED STRINGS)
+-- TABLE STRUCTURE FOR Orders
 -- --------------------------------------------------------
 CREATE TABLE
     `Orders` (
-        `order_id INT` INT (11) NOT NULL,
-        `customer_id INT` INT (11) DEFAULT NULL,
-        `order_date DATE` DATE NOT NULL,
-        PRIMARY KEY (`order_id INT`),
-        KEY (`customer_id INT`),
+        `order_id` INT (11) NOT NULL,
+        `customer_id` INT (11) DEFAULT NULL,
+        `order_date` DATE NOT NULL,
+        PRIMARY KEY (`order_id`),
+        KEY (`customer_id`),
         FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR Order_Details
+-- TABLE STRUCTURE FOR Orders
 -- --------------------------------------------------------
 CREATE TABLE
-    `Order_Details` (
-        `orderdetailid` INT (11) NOT NULL,
-        `order_id INT` INT (11) DEFAULT NULL,
-        `book_id` INT (11) DEFAULT NULL,
-        `quantity` DOUBLE NOT NULL,
-        PRIMARY KEY (`orderdetailid`),
-        KEY (`order_id INT`),
-        KEY (`book_id`),
-        FOREIGN KEY (`order_id INT`) REFERENCES `Orders` (`order_id INT`),
-        FOREIGN KEY (`book_id`) REFERENCES `Books` (`book_id`)
+    `Orders` (
+        `order_id` INT (11) NOT NULL,
+        `customer_id` INT (11) DEFAULT NULL,
+        `order_date` DATE NOT NULL,
+        PRIMARY KEY (`order_id`),
+        KEY (`customer_id`),
+        CONSTRAINT exact_requirement FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 COMMIT;
