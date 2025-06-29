@@ -16,14 +16,14 @@ SET
 
 /*!40101 SET NAMES utf8mb4 */;
 
--- CREATE THE REQUIRED DATABASE (EXACT STRING AS REQUIRED)
+-- CREATE THE REQUIRED DATABASE
 CREATE DATABASE IF NOT EXISTS alx_book_store;
 
 -- USE THE DATABASE
 USE alx_book_store;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR Authors (EXACT CASE AS REQUIRED)
+-- TABLE STRUCTURE FOR Authors
 -- --------------------------------------------------------
 CREATE TABLE
     `Authors` (
@@ -52,11 +52,11 @@ CREATE TABLE
 -- --------------------------------------------------------
 CREATE TABLE
     `Customers` (
-        `customer_id` INT (11) NOT NULL,
-        `customer_name` VARCHAR(215) NOT NULL,
-        `email` VARCHAR(215) DEFAULT NULL,
-        `address` TEXT DEFAULT NULL,
-        PRIMARY KEY (`customer_id`)
+        `customer_id ` INT (11) NOT NULL,
+        `customer_name VARCHAR(215)` VARCHAR(215) NOT NULL,
+        `email VARCHAR(215)` VARCHAR(215) DEFAULT NULL,
+        `address TEXT` TEXT DEFAULT NULL,
+        PRIMARY KEY (`customer_id `)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -65,11 +65,11 @@ CREATE TABLE
 CREATE TABLE
     `Orders` (
         `order_id` INT (11) NOT NULL,
-        `customer_id` INT (11) DEFAULT NULL,
+        `customer_id ` INT (11) DEFAULT NULL,
         `order_date` DATE NOT NULL,
         PRIMARY KEY (`order_id`),
-        KEY `customer_id` (`customer_id`),
-        CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`)
+        KEY `customer_id ` (`customer_id `),
+        CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id `) REFERENCES `Customers` (`customer_id `)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
