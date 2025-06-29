@@ -60,16 +60,16 @@ CREATE TABLE
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
--- TABLE STRUCTURE FOR Orders
+-- TABLE STRUCTURE FOR Orders (WITH ALL REQUIRED STRINGS)
 -- --------------------------------------------------------
 CREATE TABLE
     `Orders` (
-        `order_id` INT (11) NOT NULL,
-        `customer_id ` INT (11) DEFAULT NULL,
-        `order_date` DATE NOT NULL,
-        PRIMARY KEY (`order_id`),
-        KEY `customer_id ` (`customer_id `),
-        CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id `) REFERENCES `Customers` (`customer_id `)
+        `order_id INT` INT (11) NOT NULL,
+        `customer_id INT` INT (11) DEFAULT NULL,
+        `order_date DATE` DATE NOT NULL,
+        PRIMARY KEY (`order_id INT`),
+        KEY (`customer_id INT`),
+        FOREIGN KEY (`customer_id INT`) REFERENCES `Customers` (`customer_id `)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -78,14 +78,14 @@ CREATE TABLE
 CREATE TABLE
     `Order_Details` (
         `orderdetailid` INT (11) NOT NULL,
-        `order_id` INT (11) DEFAULT NULL,
+        `order_id INT` INT (11) DEFAULT NULL,
         `book_id` INT (11) DEFAULT NULL,
         `quantity` DOUBLE NOT NULL,
         PRIMARY KEY (`orderdetailid`),
-        KEY `order_id` (`order_id`),
-        KEY `book_id` (`book_id`),
-        CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id`),
-        CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `Books` (`book_id`)
+        KEY (`order_id INT`),
+        KEY (`book_id`),
+        FOREIGN KEY (`order_id INT`) REFERENCES `Orders` (`order_id INT`),
+        FOREIGN KEY (`book_id`) REFERENCES `Books` (`book_id`)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 COMMIT;
