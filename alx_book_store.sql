@@ -25,7 +25,7 @@ USE alx_book_store;
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR AUTHORS
 -- --------------------------------------------------------
-CREATE TABLE
+CREATE TABLE IF NOT EXISTS
     `authors` (
         `author_id` INT (11) NOT NULL,
         `author_name` VARCHAR(215) NOT NULL,
