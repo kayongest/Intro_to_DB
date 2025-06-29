@@ -68,7 +68,8 @@ CREATE TABLE
         `customer_id INT` INT (11) DEFAULT NULL,
         `order_date DATE` DATE NOT NULL,
         PRIMARY KEY (`order_id INT`),
-        KEY (`customer_id INT`)
+        KEY (`customer_id INT`),
+        FOREIGN KEY (customer_id)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
 -- --------------------------------------------------------
