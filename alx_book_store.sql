@@ -64,11 +64,11 @@ CREATE TABLE
 -- --------------------------------------------------------
 CREATE TABLE
     `Orders` (
-        `order_id` INT (11) NOT NULL,
-        `customer_id` INT (11) DEFAULT NULL,
-        `order_date` DATE NOT NULL,
-        PRIMARY KEY (`order_id`),
-        KEY (`customer_id`),
+        `order_id INT` INT (11) NOT NULL,
+        `customer_id INT` INT (11) DEFAULT NULL,
+        `order_date DATE` DATE NOT NULL,
+        PRIMARY KEY (`order_id INT`),
+        KEY (`customer_id INT`),
         FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
     ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
