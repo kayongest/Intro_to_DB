@@ -1,16 +1,5 @@
 -- ALX Book Store Database Schema
 -- File: alx_book_store.sql
-SET
-  SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-
-START TRANSACTION;
-
-SET
-  TIME_ZONE = "+00:00";
-
-CREATE DATABASE IF NOT EXISTS `alx_book_store`;
-
-USE `alx_book_store`;
 
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR AUTHORS
