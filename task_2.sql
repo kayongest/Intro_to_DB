@@ -1,9 +1,7 @@
 -- Script to create all tables for alx_book_store database
 -- File: task_2.sql
--- Connect to the database
 USE alx_book_store;
 
--- Create Authors table
 CREATE TABLE
     IF NOT EXISTS Authors (
         author_id INT NOT NULL,
@@ -11,7 +9,6 @@ CREATE TABLE
         PRIMARY KEY (author_id)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
--- Create Books table
 CREATE TABLE
     IF NOT EXISTS Books (
         book_id INT NOT NULL,
@@ -24,7 +21,6 @@ CREATE TABLE
         CONSTRAINT books_ibfk_1 FOREIGN KEY (author_id) REFERENCES Authors (author_id)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
--- Create Customers table
 CREATE TABLE
     IF NOT EXISTS Customers (
         customer_id INT NOT NULL,
@@ -34,7 +30,6 @@ CREATE TABLE
         PRIMARY KEY (customer_id)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
--- Create Orders table
 CREATE TABLE
     IF NOT EXISTS Orders (
         order_id INT NOT NULL,
@@ -45,7 +40,6 @@ CREATE TABLE
         FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
--- Create Order_Details table
 CREATE TABLE
     IF NOT EXISTS Order_Details (
         orderdetailid INT NOT NULL,
