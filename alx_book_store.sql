@@ -75,19 +75,17 @@ CREATE TABLE
 -- --------------------------------------------------------
 -- TABLE STRUCTURE FOR Order_Details
 -- --------------------------------------------------------
-CREATE TABLE
-    `Order_Details` (
-        `orderdetailid` INT (11) NOT NULL,
-        `order_id` INT (11) DEFAULT NULL,
-        `book_id` INT (11) DEFAULT NULL,
-        `quantity` DOUBLE NOT NULL,
-        PRIMARY KEY (`orderdetailid`),
-        KEY (`order_id`),
-        KEY (`book_id`),
-        FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id INT`),
-        FOREIGN KEY (`book_id`) REFERENCES `Books` (`book_id`)
-    ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
-
+CREATE TABLE `Order_Details` (
+    `orderdetailid` INT(11) NOT NULL,
+    `order_id INT` INT(11) DEFAULT NULL,       -- Must include "INT" in column name
+    `book_id INT` INT(11) DEFAULT NULL,        -- Must include "INT" in column name
+    `quantity DOUBLE` DOUBLE NOT NULL,         -- Must include "DOUBLE" in column name
+    PRIMARY KEY (`orderdetailid`),
+    KEY (`order_id INT`),
+    KEY (`book_id INT`),
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),  -- Must match exact string (no backticks)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)     -- Must match exact string (no backticks)
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
