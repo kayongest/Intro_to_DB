@@ -4,7 +4,7 @@ Script to create the 'alx_book_store' database in MySQL.
 Handles existing database gracefully and provides proper feedback.
 """
 
-import MySQLdb
+import mysql.connector
 from sys import argv
 
 def create_database():
@@ -14,10 +14,10 @@ def create_database():
     """
     try:
         # Connect to MySQL server (without specifying a database)
-        connection = MySQLdb.connect(
+        connection = mysql.connector.connect(
             host="localhost",
             user=argv[1],
-            passwd=argv[2],
+            password=argv[2],
             port=3306
         )
         
@@ -30,13 +30,13 @@ def create_database():
         # Print success message
         print("Database 'alx_book_store' created successfully!")
         
-    except MySQLdb.Error as e:
+    except mysql.connector.Error as e:
         # Handle connection/creation errors
         print(f"Error connecting to MySQL or creating database: {e}")
         
     finally:
         # Close the connection if it was established
-        if 'connection' in locals() and connection.open:
+        if 'connection' in locals() and connection.is_connected():
             cursor.close()
             connection.close()
             print("MySQL connection closed")
