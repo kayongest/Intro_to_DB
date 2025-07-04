@@ -1,7 +1,7 @@
 -- Script to insert a single customer record
 -- File: task_5.sql
 INSERT INTO
-    Customers (customer_id, customer_name, email, address)
+    customer (customer_id, customer_name, email, address)
 VALUES
     (
         1,
